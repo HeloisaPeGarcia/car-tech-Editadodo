@@ -14,7 +14,7 @@ function Login() {
 
     // Verificação de login fixo
     if (username === "adm" && password === "adm") {
-      alert('Login fixo bem-sucedido!');
+      alert('Login bem-sucedido!');
       navigate('/estoque');
       return;
     }
