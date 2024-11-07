@@ -19,26 +19,6 @@ function Login() {
       return;
     }
 
-    try {
-      const response = await fetch('http://4.248.17.144:3010/api/administradores/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ username, password }),
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        alert('Login bem-sucedido!');
-        navigate('/estoque');
-      } else {
-        alert('Login falhou! Verifique suas credenciais.');
-      }
-    } catch (error) {
-      console.error('Erro ao fazer login:', error);
-      alert('Ocorreu um erro ao fazer login.');
-    }
   };
 
   return (
