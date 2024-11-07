@@ -8,7 +8,7 @@ function AgendamentosList() {
   useEffect(() => {
     const fetchAgendamentos = async () => {
       try {
-        const response = await fetch('http://localhost:3010/api/agendamentos');
+        const response = await fetch('http://4.248.17.144:3010');
         const data = await response.json();
         setAgendamentos(data);
       } catch (error) {

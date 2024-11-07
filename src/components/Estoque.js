@@ -14,7 +14,7 @@ function InventoryManagement() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('http://localhost:3010/api/ferramentas')
+    fetch('http://4.248.17.144:3010')
       .then((response) => response.json())
       .then((data) => setItems(data))
       .catch((error) => console.error('Erro ao buscar ferramentas:', error));

@@ -18,7 +18,7 @@ const CadastrarServico = () => {
     };
   
     try {
-      const response = await fetch('http://localhost:3010/api/servicos', {
+      const response = await fetch('http://4.248.17.144:3010', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

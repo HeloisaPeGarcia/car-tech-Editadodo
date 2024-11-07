@@ -26,7 +26,7 @@ const EditServico = () => {
     }
 
     // Atualiza o serviço no backend
-    fetch(`http://localhost:3010/api/servicos/${servico.id_servico}`, {
+    fetch(`http://4.248.17.144:3010${servico.id_servico}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

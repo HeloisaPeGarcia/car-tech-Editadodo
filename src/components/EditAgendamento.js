@@ -38,7 +38,7 @@ function EditAgendamento() {
 
     try {
       // Envia os dados atualizados para o backend
-      const response = await fetch(`http://localhost:3010/api/agendamentos/${agendamento.id_agendamento}`, {
+      const response = await fetch(`http://4.248.17.144:3010${agendamento.id_agendamento}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
