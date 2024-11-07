@@ -5,15 +5,22 @@ import Footer from './Footer';
 import Header from './Header';
 
 function Login() {
-  const navigate = useNavigate(); // Inicializa o hook de navegação
-  const [username, setUsername] = useState(''); // Estado para o username
-  const [password, setPassword] = useState(''); // Estado para a password
+  const navigate = useNavigate();
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Evita o comportamento padrão de recarregar a página
+    e.preventDefault();
+
+    // Verificação de login fixo
+    if (username === "adm" && password === "adm") {
+      alert('Login fixo bem-sucedido!');
+      navigate('/estoque');
+      return;
+    }
 
     try {
-      const response = await fetch('http://localhost:3010/api/administradores/login', {
+      const response = await fetch('http://4.248.17.144:3010/api/administradores/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -22,15 +29,15 @@ function Login() {
       });
 
       if (response.ok) {
-        const data = await response.json(); // Extrai a resposta JSON
-        alert('Login bem-sucedido!'); // Alerta de sucesso
-        navigate('/estoque'); // Redireciona para a página de Estoque
+        const data = await response.json();
+        alert('Login bem-sucedido!');
+        navigate('/estoque');
       } else {
-        alert('Login falhou! Verifique suas credenciais.'); // Alerta de erro
+        alert('Login falhou! Verifique suas credenciais.');
       }
     } catch (error) {
-      console.error('Erro ao fazer login:', error); // Log do erro
-      alert('Ocorreu um erro ao fazer login.'); // Alerta de erro
+      console.error('Erro ao fazer login:', error);
+      alert('Ocorreu um erro ao fazer login.');
     }
   };
 
@@ -45,7 +52,7 @@ function Login() {
             style={styles.input}
             placeholder="Value"
             value={username}
-            onChange={(e) => setUsername(e.target.value)} // Atualiza o estado do username
+            onChange={(e) => setUsername(e.target.value)}
           />
 
           <label style={styles.label}>Senha</label>
@@ -54,7 +61,7 @@ function Login() {
             style={styles.input}
             placeholder="Value"
             value={password}
-            onChange={(e) => setPassword(e.target.value)} // Atualiza o estado da password
+            onChange={(e) => setPassword(e.target.value)}
           />
 
           <button type="submit" style={styles.button}>Sign In</button>
@@ -72,8 +79,8 @@ const styles = {
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    minHeight: "100vh",  // Define altura mínima para preencher a tela inteira
-    width: "100vw",       // Largura total da tela
+    minHeight: "100vh",
+    width: "100vw",
     backgroundColor: "#1a1a1a",
     color: "#ffffff",
   },
